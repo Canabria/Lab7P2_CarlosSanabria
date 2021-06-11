@@ -13,12 +13,24 @@ import java.util.ArrayList;
  * @author HP1
  */
 public class Playlist implements Serializable{
+    private String Nombre;
     private ArrayList<Canciones>C;
     private static final long SerialVersionUID=777L;
 
-    public Playlist(ArrayList<Canciones> C) {
+    public Playlist(String Nombre, ArrayList<Canciones> C) {
+        this.Nombre = Nombre;
         this.C = C;
     }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    
 
     public ArrayList<Canciones> getC() {
         return C;
@@ -30,7 +42,7 @@ public class Playlist implements Serializable{
 
     @Override
     public String toString() {
-        return "Playlist{" + "C=" + C + '}';
+        return "Playlist{" + "Nombre=" + Nombre + ", C=" + C + '}';
     }
     
 }
