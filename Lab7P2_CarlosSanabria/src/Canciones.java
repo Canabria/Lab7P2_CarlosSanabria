@@ -28,16 +28,6 @@ public class Canciones implements Serializable{
         this.nom_produc = nom_produc;
         this.adi = adi;
     }
-
-    public Canciones(String nom, int duracion, String nom_compos, String nom_distri, String exclusivo, String nom_produc) {
-        this.nom = nom;
-        this.duracion = duracion;
-        this.nom_compos = nom_compos;
-        this.nom_distri = nom_distri;
-        this.exclusivo = exclusivo;
-        this.nom_produc = nom_produc;
-    }
-
     public String getNom() {
         return nom;
     }
