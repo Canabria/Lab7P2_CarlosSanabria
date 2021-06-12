@@ -108,12 +108,14 @@ public class Startup extends javax.swing.JFrame {
         JB_EliminarArtista4 = new javax.swing.JButton();
         Exclusivo = new javax.swing.ButtonGroup();
         ArtistasExtra = new javax.swing.ButtonGroup();
-        JD_ListaPlaylist = new javax.swing.JDialog();
+        JD_Simulacion = new javax.swing.JDialog();
         jScrollPane6 = new javax.swing.JScrollPane();
         JL_PlayList = new javax.swing.JList<>();
         CB_generos = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        JB_simula = new javax.swing.JButton();
+        Buscar_Playlist = new javax.swing.JButton();
+        PB_Cancion = new javax.swing.JProgressBar();
+        jLabel6 = new javax.swing.JLabel();
+        JB_Comenzar = new javax.swing.JButton();
         JB_SalirSys = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
@@ -683,47 +685,72 @@ public class Startup extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Buscar_Playlist.setText("Buscar playlist");
+        Buscar_Playlist.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                Buscar_PlaylistMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout JD_ListaPlaylistLayout = new javax.swing.GroupLayout(JD_ListaPlaylist.getContentPane());
-        JD_ListaPlaylist.getContentPane().setLayout(JD_ListaPlaylistLayout);
-        JD_ListaPlaylistLayout.setHorizontalGroup(
-            JD_ListaPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JD_ListaPlaylistLayout.createSequentialGroup()
-                .addGroup(JD_ListaPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JD_ListaPlaylistLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JD_ListaPlaylistLayout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addComponent(CB_generos, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_ListaPlaylistLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(246, 246, 246))
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel6.setText("Simulación");
+
+        JB_Comenzar.setText("Comenzar playlist");
+        JB_Comenzar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_ComenzarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JD_SimulacionLayout = new javax.swing.GroupLayout(JD_Simulacion.getContentPane());
+        JD_Simulacion.getContentPane().setLayout(JD_SimulacionLayout);
+        JD_SimulacionLayout.setHorizontalGroup(
+            JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_SimulacionLayout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addGroup(JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_SimulacionLayout.createSequentialGroup()
+                        .addGroup(JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(PB_Cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 788, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JD_SimulacionLayout.createSequentialGroup()
+                                .addGap(310, 310, 310)
+                                .addComponent(JB_Comenzar)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_SimulacionLayout.createSequentialGroup()
+                        .addComponent(Buscar_Playlist)
+                        .addGap(78, 78, 78))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_SimulacionLayout.createSequentialGroup()
+                .addGap(318, 318, 318)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(CB_generos, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
-        JD_ListaPlaylistLayout.setVerticalGroup(
-            JD_ListaPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_ListaPlaylistLayout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addComponent(CB_generos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton1)
-                .addGap(41, 41, 41))
+        JD_SimulacionLayout.setVerticalGroup(
+            JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_SimulacionLayout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addGroup(JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CB_generos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_SimulacionLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JD_SimulacionLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(PB_Cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(JB_Comenzar)))
+                .addGap(44, 44, 44)
+                .addComponent(Buscar_Playlist)
+                .addGap(33, 33, 33))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Start up");
-
-        JB_simula.setText("Simulacion");
 
         JB_SalirSys.setText("Salir de sistema");
         JB_SalirSys.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -765,7 +792,7 @@ public class Startup extends javax.swing.JFrame {
         jToolBar1.add(JB_Canciones);
 
         JB_PlayList.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        JB_PlayList.setText("Playlist");
+        JB_PlayList.setText("Simulación");
         JB_PlayList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JB_PlayListMouseClicked(evt);
@@ -783,16 +810,15 @@ public class Startup extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(JB_simula)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JB_SalirSys)
-                        .addGap(58, 58, 58)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(117, 117, 117)
+                                .addComponent(JB_SalirSys)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -801,11 +827,9 @@ public class Startup extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(58, 58, 58)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JB_simula)
-                    .addComponent(JB_SalirSys))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(JB_SalirSys)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         pack();
@@ -849,6 +873,16 @@ public class Startup extends javax.swing.JFrame {
 
     private void JB_ArtistasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ArtistasMouseClicked
         // TODO add your handling code here:
+        Administrar_Artistas ap = new Administrar_Artistas("./Astista.cana");
+        ap.cargarArchivo();
+        DefaultListModel modelo = (DefaultListModel) JL_Artista.getModel();
+        for (int i = 0; i < ap.getListaArtistas().size(); i++) {
+            modelo.addElement(ap.getListaArtistas().get(i));
+            
+        }
+        JL_Artista.setModel(modelo);
+         JL_Artista1.setModel(modelo);
+         JL_Artistas2.setModel(modelo);
         JDArtista();
     }//GEN-LAST:event_JB_ArtistasMouseClicked
 
@@ -1095,18 +1129,25 @@ public class Startup extends javax.swing.JFrame {
 
     private void JB_ModificarCacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ModificarCacionesMouseClicked
         // TODO add your handling code here:
-         DefaultListModel modeloLISTA = (DefaultListModel) JL_Canciones.getModel();
-        ((Albums) modeloLISTA.get(JL_Artista.getSelectedIndex())).setNombre(JOptionPane.showInputDialog("Nombre: "));
-        ((Albums) modeloLISTA.get(JL_Artista.getSelectedIndex())).setAliasp(JOptionPane.showInputDialog("Alias del Productor: "));
-        ((Albums) modeloLISTA.get(JL_Artista.getSelectedIndex())).setFecha_p(JOptionPane.showInputDialog("Fecha de Producion: "));
-        ((Albums) modeloLISTA.get(JL_Artista.getSelectedIndex())).setGeneroM(JOptionPane.showInputDialog("Genero de Musica: "));
-        ((Albums) modeloLISTA.get(JL_Artista.getSelectedIndex())).setFormat(JOptionPane.showInputDialog("Formato de Publición: (CD/Digital)"));
+       DefaultListModel modeloLISTA = (DefaultListModel) JL_Canciones.getModel();
+        ((Canciones) modeloLISTA.get(JL_Canciones.getSelectedIndex())).setNom(JOptionPane.showInputDialog("Nombre: "));
+        ((Canciones) modeloLISTA.get(JL_Canciones.getSelectedIndex())).setDuracion(Integer.parseInt(JOptionPane.showInputDialog("Duracion: ")));
+        ((Canciones) modeloLISTA.get(JL_Canciones.getSelectedIndex())).setExclusivo(JOptionPane.showInputDialog("Exclusivo [Si/No]: "));
+        ((Canciones) modeloLISTA.get(JL_Canciones.getSelectedIndex())).setNom_compos(JOptionPane.showInputDialog("Nombre Compositor: "));
+        ((Canciones) modeloLISTA.get(JL_Canciones.getSelectedIndex())).setNom_produc(JOptionPane.showInputDialog("Nombre Productor: "));
+        ((Canciones) modeloLISTA.get(JL_Canciones.getSelectedIndex())).setNom_distri(JOptionPane.showInputDialog("Nombre Distribuidor: "));
 
-        JL_Albums.setModel(modeloLISTA);
+        JL_Canciones.setModel(modeloLISTA);
     }//GEN-LAST:event_JB_ModificarCacionesMouseClicked
 
     private void JB_EliminarCancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_EliminarCancionesMouseClicked
         // TODO add your handling code here:
+         int p;
+            p= JL_Canciones.getSelectedIndex();
+            
+             DefaultListModel modeloLISTA = (DefaultListModel) JL_Canciones.getModel();
+             modeloLISTA.removeElementAt(p);
+             JL_Canciones.setModel(modeloLISTA);
     }//GEN-LAST:event_JB_EliminarCancionesMouseClicked
 
     private void JB_ModificarArtista4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ModificarArtista4MouseClicked
@@ -1202,7 +1243,7 @@ public class Startup extends javax.swing.JFrame {
         JDCANCIONES();
     }//GEN-LAST:event_JB_CancionesMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void Buscar_PlaylistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar_PlaylistMouseClicked
         // TODO add your handling code here:
         DefaultComboBoxModel modelo =(DefaultComboBoxModel) CB_generos.getModel();
         Administrar_Playlist ap = new Administrar_Playlist("./Playlist.cana");
@@ -1222,15 +1263,15 @@ public class Startup extends javax.swing.JFrame {
                  }
              }
              if(tt){
-                 for (int i = 0; i < ap.getListaPlaylists().get(i).getC().size(); i++) {
+                 for (int i = 0; i < ap.getListaPlaylists().get(indie).getC().size(); i++) {
                       for (int j = 0; j < aa.getListaArtistas().size(); j++) {
-                            for (int v = 0; v < aa.getListaArtistas().get(i).getA().size(); v++) {
-                                if(aa.getListaArtistas().get(i).getA().get(v).getGeneroM().equalsIgnoreCase(t)){
-                                    for (int k = 0; k < aa.getListaArtistas().get(i).getA().get(v).getC().size(); k++) {
-                                        if(aa.getListaArtistas().get(i).getA().get(v).getC().get(k).getNom().equalsIgnoreCase(ap.getListaPlaylists().get(indie).getC().get(i).getNom())){
+                            for (int v = 0; v < aa.getListaArtistas().get(j).getA().size(); v++) {
+                                if(aa.getListaArtistas().get(j).getA().get(v).getGeneroM().equalsIgnoreCase(t)){
+                                    for (int k = 0; k < aa.getListaArtistas().get(j).getA().get(v).getC().size(); k++) {
+                                        if(aa.getListaArtistas().get(j).getA().get(v).getC().get(k).getNom().equalsIgnoreCase(ap.getListaPlaylists().get(indie).getC().get(i).getNom())){
                                             
                                         }else{
-                                            c.add(aa.getListaArtistas().get(i).getA().get(v).getC().get(k));
+                                            c.add(aa.getListaArtistas().get(j).getA().get(v).getC().get(k));
                                         }
                                     }
                                 }
@@ -1263,7 +1304,31 @@ public class Startup extends javax.swing.JFrame {
                  modelolista.addElement(ap.getListaPlaylists().get(indie).getC().get(i));
              }
              JL_PlayList.setModel(modelolista);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_Buscar_PlaylistMouseClicked
+
+    private void JB_ComenzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ComenzarMouseClicked
+        // TODO add your handling code here:
+        try{
+        int f=JL_PlayList.getSelectedIndex();
+        DefaultListModel modelo= (DefaultListModel) JL_PlayList.getModel();
+        Canciones d= (Canciones)modelo.get(f);
+         Canciones n= (Canciones)modelo.get(f);
+        
+        int dur = d.getDuracion();
+        String nom = n.getNom();
+        n.getNom();
+        hb = new HiloBarra(PB_Cancion, dur, nom);
+           
+
+            hb.start();
+            
+            } catch (Exception e) {
+
+        }
+        hb.setAvanzar(true);
+
+      
+    }//GEN-LAST:event_JB_ComenzarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1281,10 +1346,10 @@ public class Startup extends javax.swing.JFrame {
         JD_Albums.setVisible(true);
     }
      public void JDPLAYLIST(){
-        JD_ListaPlaylist.pack();
-        JD_ListaPlaylist.setModal(true);
-        JD_ListaPlaylist.setLocationRelativeTo(this);
-        JD_ListaPlaylist.setVisible(true);
+        JD_Simulacion.pack();
+        JD_Simulacion.setModal(true);
+        JD_Simulacion.setLocationRelativeTo(this);
+        JD_Simulacion.setVisible(true);
     }
      public void JDCANCIONES(){
         JD_Canciones.pack();
@@ -1292,16 +1357,7 @@ public class Startup extends javax.swing.JFrame {
         JD_Canciones.setLocationRelativeTo(this);
         JD_Canciones.setVisible(true);
     }
-     public void playlist(){
-         Administrar_Artistas ap = new Administrar_Artistas("./Astista.cana");
-        ap.cargarArchivo();
-        DefaultComboBoxModel modelo =new DefaultComboBoxModel();
-         for (int i = 0; i < ap.getListaArtistas().size(); i++) {
-             for (int j = 0; j < ap.getListaArtistas().get(i).getA().size(); j++) {
-                 modelo.addElement(ap.getListaArtistas().get(i).getA().get(j).getGeneroM());
-             }
-         }
-     }
+     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1336,6 +1392,7 @@ public class Startup extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup ArtistasExtra;
+    private javax.swing.JButton Buscar_Playlist;
     private javax.swing.JComboBox<String> CB_generos;
     private javax.swing.ButtonGroup Exclusivo;
     private javax.swing.ButtonGroup Formato_p;
@@ -1347,6 +1404,7 @@ public class Startup extends javax.swing.JFrame {
     private javax.swing.JButton JB_Albums;
     private javax.swing.JButton JB_Artistas;
     private javax.swing.JButton JB_Canciones;
+    private javax.swing.JButton JB_Comenzar;
     private javax.swing.JButton JB_EliminarAlbums;
     private javax.swing.JButton JB_EliminarAlbums_d_A;
     private javax.swing.JButton JB_EliminarArtista;
@@ -1359,17 +1417,17 @@ public class Startup extends javax.swing.JFrame {
     private javax.swing.JButton JB_ModificarCaciones;
     private javax.swing.JButton JB_PlayList;
     private javax.swing.JButton JB_SalirSys;
-    private javax.swing.JButton JB_simula;
     private javax.swing.JDialog JD_Albums;
     private javax.swing.JDialog JD_Artistas;
     private javax.swing.JDialog JD_Canciones;
-    private javax.swing.JDialog JD_ListaPlaylist;
+    private javax.swing.JDialog JD_Simulacion;
     private javax.swing.JList<String> JL_Albums;
     private javax.swing.JList<String> JL_Artista;
     private javax.swing.JList<String> JL_Artista1;
     private javax.swing.JList<String> JL_Artistas2;
     private javax.swing.JList<String> JL_Canciones;
     private javax.swing.JList<String> JL_PlayList;
+    private javax.swing.JProgressBar PB_Cancion;
     private javax.swing.JRadioButton RB_CD;
     private javax.swing.JRadioButton RB_digital;
     private javax.swing.JRadioButton RB_exNo;
@@ -1392,7 +1450,6 @@ public class Startup extends javax.swing.JFrame {
     private javax.swing.JTextField TF_NombreD;
     private javax.swing.JTextField TF_NombreP;
     private javax.swing.ButtonGroup Tipo_de_musica;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1415,6 +1472,7 @@ public class Startup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1423,4 +1481,5 @@ public class Startup extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
+HiloBarra hb;
 }
