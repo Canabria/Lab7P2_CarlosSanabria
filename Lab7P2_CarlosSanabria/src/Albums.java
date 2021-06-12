@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Albums implements Serializable{
     private String nombre,fecha_p,generoM,format,Aliasp;
-    private static final long SerialVersionUID=777L;
+    private static final long SerialVersionUID=776L;
     ArrayList<Canciones>C=new ArrayList();
 //Constructor
     public Albums(String nombre, String fecha_p, String generoM, String format, String Aliasp) {
