@@ -22,17 +22,7 @@ public class Startup extends javax.swing.JFrame {
      */
     public Startup() {
         initComponents();
-        Administrar_Artistas ap = new Administrar_Artistas("./Astista.cana");
-        ap.cargarArchivo();
-        DefaultListModel modelo = (DefaultListModel) JL_Artista.getModel();
         
-        for (int i = 0; i < ap.getListaArtistas().size(); i++) {
-            Artista a =ap.getListaArtistas().get(i);
-            modelo.addElement(a);
-        }
-        JL_Artista.setModel(modelo);
-        JL_Artista1.setModel(modelo);
-        JL_Artistas2.setModel(modelo);
     }
 
     /**
@@ -686,6 +676,12 @@ public class Startup extends javax.swing.JFrame {
         JL_PlayList.setModel(new DefaultListModel());
         jScrollPane6.setViewportView(JL_PlayList);
 
+        CB_generos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CB_generosItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout JD_ListaPlaylistLayout = new javax.swing.GroupLayout(JD_ListaPlaylist.getContentPane());
         JD_ListaPlaylist.getContentPane().setLayout(JD_ListaPlaylistLayout);
         JD_ListaPlaylistLayout.setHorizontalGroup(
@@ -747,10 +743,20 @@ public class Startup extends javax.swing.JFrame {
 
         JB_Canciones.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         JB_Canciones.setText("Canciones");
+        JB_Canciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_CancionesMouseClicked(evt);
+            }
+        });
         jToolBar1.add(JB_Canciones);
 
         JB_PlayList.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         JB_PlayList.setText("Playlist");
+        JB_PlayList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_PlayListMouseClicked(evt);
+            }
+        });
         jToolBar1.add(JB_PlayList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1097,6 +1103,83 @@ public class Startup extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JB_EliminarArtista4MouseClicked
 
+    private void CB_generosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_generosItemStateChanged
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo =(DefaultComboBoxModel) CB_generos.getModel();
+         if (evt.getStateChange() == 2) {
+              Administrar_Playlist ap = new Administrar_Playlist("./Playlist.cana");
+              ap.cargarArchivo();
+               Administrar_Artistas aa = new Administrar_Artistas("./Astista.cana");
+        aa.cargarArchivo();
+             Object o= modelo.getSelectedItem();
+             String t="";
+             t+=o;
+             ArrayList<Canciones>c=new ArrayList();
+             boolean tt=false;
+             int indie=0;
+             for (int i = 0; i < ap.getListaPlaylists().size(); i++) {
+                 if(ap.getListaPlaylists().get(i).getNombre().equalsIgnoreCase(t)){
+                     tt=true;
+                     indie=i;
+                 }
+             }
+             if(tt){
+                 for (int i = 0; i < ap.getListaPlaylists().get(i).getC().size(); i++) {
+                      for (int j = 0; j < aa.getListaArtistas().size(); j++) {
+                            for (int v = 0; v < aa.getListaArtistas().get(i).getA().size(); v++) {
+                                if(aa.getListaArtistas().get(i).getA().get(v).getGeneroM().equalsIgnoreCase(t)){
+                                    for (int k = 0; k < aa.getListaArtistas().get(i).getA().get(v).getC().size(); k++) {
+                                        if(aa.getListaArtistas().get(i).getA().get(v).getC().get(k).getNom().equalsIgnoreCase(ap.getListaPlaylists().get(indie).getC().get(i).getNom())){
+                                            
+                                        }else{
+                                            c.add(aa.getListaArtistas().get(i).getA().get(v).getC().get(k));
+                                        }
+                                    }
+                                }
+                            }
+                      }
+                 }
+                 ap.getListaPlaylists().get(indie).getC().addAll(c);
+             }else{
+                 for (int i = 0; i < aa.getListaArtistas().size(); i++) {
+                     for (int j = 0; j < aa.getListaArtistas().get(i).getA().size(); j++) {
+                         if(aa.getListaArtistas().get(i).getA().get(j).getGeneroM().equalsIgnoreCase(t)){
+                             for (int k = 0; k < aa.getListaArtistas().get(i).getA().get(j).getC().size(); k++) {
+                                 c.add(aa.getListaArtistas().get(i).getA().get(j).getC().get(k));
+                             }
+                         }
+                     }
+                 }
+                 ap.getListaPlaylists().add(new Playlist(t,c));
+             }
+             ap.escribirArchivo();
+             ap.cargarArchivo();
+             DefaultListModel modelolista = new  DefaultListModel();
+             for (int i = 0; i < ap.getListaPlaylists().size(); i++) {
+                 if(ap.getListaPlaylists().get(i).getNombre().equalsIgnoreCase(t)){
+                     indie=i;
+                 }
+             }
+             
+             for (int i = 0; i < ap.getListaPlaylists().get(indie).getC().size(); i++) {
+                 modelolista.addElement(ap.getListaPlaylists().get(indie).getC().get(i));
+             }
+             JL_PlayList.setModel(modelolista);
+         }
+        
+    }//GEN-LAST:event_CB_generosItemStateChanged
+
+    private void JB_PlayListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_PlayListMouseClicked
+        // TODO add your handling code here:
+        playlist();
+        JDPLAYLIST();
+    }//GEN-LAST:event_JB_PlayListMouseClicked
+
+    private void JB_CancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CancionesMouseClicked
+        // TODO add your handling code here:
+        JDCANCIONES();
+    }//GEN-LAST:event_JB_CancionesMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1112,12 +1195,25 @@ public class Startup extends javax.swing.JFrame {
         JD_Albums.setLocationRelativeTo(this);
         JD_Albums.setVisible(true);
     }
+     public void JDPLAYLIST(){
+        JD_ListaPlaylist.pack();
+        JD_ListaPlaylist.setModal(true);
+        JD_ListaPlaylist.setLocationRelativeTo(this);
+        JD_ListaPlaylist.setVisible(true);
+    }
+     public void JDCANCIONES(){
+        JD_Canciones.pack();
+        JD_Canciones.setModal(true);
+        JD_Canciones.setLocationRelativeTo(this);
+        JD_Canciones.setVisible(true);
+    }
      public void playlist(){
          Administrar_Artistas ap = new Administrar_Artistas("./Astista.cana");
         ap.cargarArchivo();
+        DefaultComboBoxModel modelo =new DefaultComboBoxModel();
          for (int i = 0; i < ap.getListaArtistas().size(); i++) {
              for (int j = 0; j < ap.getListaArtistas().get(i).getA().size(); j++) {
-                 
+                 modelo.addElement(ap.getListaArtistas().get(i).getA().get(j).getGeneroM());
              }
          }
      }

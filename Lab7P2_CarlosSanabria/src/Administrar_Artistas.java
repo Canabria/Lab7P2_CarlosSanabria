@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author HP1
  */
-public class Administrar_Artistas {
+public class Administrar_Artistas  {
     private ArrayList<Artista> listaArtistas = new ArrayList();
     private File archivo = null;
     

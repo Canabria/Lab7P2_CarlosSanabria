@@ -1024,6 +1024,9 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="CB_generosItemStateChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -1152,6 +1155,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Canciones"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JB_CancionesMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="JB_PlayList">
           <Properties>
@@ -1160,6 +1166,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Playlist"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JB_PlayListMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
